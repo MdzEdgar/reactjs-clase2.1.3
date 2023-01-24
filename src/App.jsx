@@ -1,14 +1,22 @@
+import axios from 'axios'
 import { useEffect } from 'react'
 import './App.css'
 
 function App() {
 
-  const getRandomUser = async () => {
-    fetch("https://randomuser.me/api/")
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err))
+  // Then y catch con fetch
+  // const getRandomUser = async () => {
+  //   fetch("https://randomuser.me/api/")
+  //     .then((response) => response.json())
+  //     .then((data) => console.log(data))
+  //     .catch((err) => console.log(err))
     
+  // }
+
+  const getRandomUser = () => {
+    axios.get("https://randomuser.me/api/")
+    .then((response) => console.log(response))
+    .catch((err) => console.log(err))
   }
 
   useEffect(() =>{
