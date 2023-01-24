@@ -25,10 +25,21 @@ function App() {
     getRandomUser()
   }, [])
 
+  //Renderizar los siguientes datos del usuario aleatorio, nombre completo,edad, imagen, celular, email y localizacion
+
   return (
     <div className="App">
       {
-      user ? <h1>{user?.name.title} {user?.name.first} {user?.name.last}</h1> : <h1>Cargando...</h1>
+      user ? (
+      <>
+        <h1>{user?.name.title} {user?.name.first} {user?.name.last}</h1>
+        <h2>{user?.dob.age}</h2>
+        <img src={user?.picture.large} alt="" />
+        <span>{user?.cell}</span>
+        <span>{user?.email}</span>
+        <span>{user?.location.city} {user?.location.city} {user?.location.state} {user?.location.postcode} {user?.location.country}</span>
+      </>
+      ) : <h1>Cargando...</h1>
       }
     </div>
   )
