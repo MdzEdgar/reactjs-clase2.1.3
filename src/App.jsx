@@ -4,9 +4,10 @@ import './App.css'
 function App() {
 
   const getRandomUser = async () => {
-    const response = await fetch("https://randomuser.me/api/");
-    const data = await response.json()
-    console.log(data)
+    fetch("https://randomuser.me/api/")
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+    
   }
 
   useEffect(() =>{
