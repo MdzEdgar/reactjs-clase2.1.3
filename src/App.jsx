@@ -15,7 +15,7 @@ function App() {
 
   const getRandomUser = () => {
     axios.get("https://randomuser.me/api/")
-    .then((response) => console.log(response))
+    .then((res) => console.log(res.data))
     .catch((err) => console.log(err))
   }
 
