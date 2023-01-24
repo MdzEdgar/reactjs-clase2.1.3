@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{user.name.title}</h1>
+      <h1>{user?.name.title} {user?.name.first} {user?.name.last}</h1>
     </div>
   )
 }
