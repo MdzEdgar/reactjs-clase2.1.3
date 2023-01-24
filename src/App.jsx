@@ -1,8 +1,10 @@
 import axios from 'axios'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
+
+  const [user, setUser] = useState()
 
   // Then y catch con fetch
   // const getRandomUser = async () => {
@@ -15,7 +17,7 @@ function App() {
 
   const getRandomUser = () => {
     axios.get("https://randomuser.me/api/")
-    .then((res) => console.log(res.data))
+    .then((res) => setUser(res.data.results[0]))
     .catch((err) => console.log(err))
   }
 
@@ -25,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hola Mundo</h1>
+      <h1>{user.name.title}</h1>
     </div>
   )
 }
