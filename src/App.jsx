@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import './App.css'
+import UserCard from './components/UserCard'
 
 function App() {
 
@@ -29,15 +30,9 @@ function App() {
 
   return (
     <div className="App">
-      {
-      user ? (
+      {user ? (
       <>
-        <h1>{user?.name.title} {user?.name.first} {user?.name.last}</h1>
-        <h2>{user?.dob.age}</h2>
-        <img src={user?.picture.large} alt="" />
-        <span>{user?.cell}</span>
-        <span>{user?.email}</span>
-        <span>{user?.location.city} {user?.location.city} {user?.location.state} {user?.location.postcode} {user?.location.country}</span>
+        <UserCard user={user} getRandomUser={getRandomUser} />
       </>
       ) : <h1>Cargando...</h1>
       }
